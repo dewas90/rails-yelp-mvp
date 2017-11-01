@@ -1,0 +1,15 @@
+<h1>
+  These are all the restaurants
+</h1>
+  <%= link_to 'Add a new restaurant', new_restaurant_path %>
+
+    <% @restaurants.each do |restaurant| %>
+      <div class="container">
+        <div class="row">
+          <h2> <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %> </h2>
+          <p><%= restaurant.address %></p>
+          <%= link_to "Edit restaurant", edit_restaurant_path(restaurant) %>
+          <%= link_to 'Remove restaurant', restaurant_path(restaurant), method: :delete %>
+        </div>
+      </div>
+    <% end %>
